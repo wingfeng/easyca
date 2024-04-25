@@ -21,7 +21,7 @@ type Opts struct {
 	//pfx的默认密码
 	DefaultPWD      string
 	DefaultRoleName string
-	UseOIDC         bool
+	Authn           string
 	Oidc            struct {
 		Issuer        string
 		ClientID      string

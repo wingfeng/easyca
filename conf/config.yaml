@@ -8,6 +8,7 @@ port: 9000
 defaultpwd: "easyca.local"
 defaultRoleName: "employee"
 useoidc: false
+authn: "inner"
 ldap:
     url: "ldap://localhost:389"
     basedn: "dc=easyca,dc=local"

@@ -7,6 +7,10 @@
  6. 吊销证书 (提供空的吊销证书列表)
  7. 格式转换 (尚未实现)
 
-
+支持inner,ldap,oidc几种验证方式
+inner验证(dev only)
+账号:caadmin
+密码: pass@word1
+ldap方式可以配合openldap
 Start OpenLDAP
 docker run -d -p 389:389 -p 636:636 --env LDAP_ORGANISATION="easyca" --env LDAP_DOMAIN="easyca.local" --env LDAP_ADMIN_PASSWORD="pass@word1"     --name openldap     --hostname openldap-host   --network bridge     osixia/openldap
