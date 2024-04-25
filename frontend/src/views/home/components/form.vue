@@ -51,8 +51,8 @@ export default {
     return {
       dialogVisible: false,
       formData: {
-        dn: "idx.local",
-        validity: 365
+        dn: "EasyCA Root",
+        validity: 3650
       },
       rules: {
         dn: [

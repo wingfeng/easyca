@@ -12,6 +12,9 @@ APP_VERSION=0.0.1
 BUILD_VERSION=$(APP_VERSION).$(GIT_REVISION)
 GO_VERSION=$(shell go version)
 release:	
+	cd frontend
+	yarn build
+	cd ..	
 	go env -w CGO_ENABLED=1;go build -a -installsuffix cgo -v  \
 	-ldflags "-extldflags '-static' -s -X 'main.AppName=${APP_NAME}' \
 				-X 'main.AppVersion=${APP_VERSION}' \
