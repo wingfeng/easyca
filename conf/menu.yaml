@@ -1,0 +1,26 @@
+items:
+  - name: "首页"
+    url: "/v1/home"
+    class: el-icon-s-home
+  - name: "证书管理"
+    url: "/ca"
+    class: el-icon-document
+    subs:
+      - name: "服务器证书"
+        url: "/v1/newca/server"
+      - name: "个人证书"
+        url: "/v1/newca/personal"
+      - name: "代码签名证书"
+        url: "/v1/newca/sign"
+  - name: "配置"
+    url: "/v1/setting"
+    class: el-icon-setting
+    subs:
+      - name: "权限配置"
+        url: "/v1/setting/user"
+  - name: "使用帮助"
+    url: "/v1/help"
+    class: el-icon-help
+  - name: "系统信息"
+    url: "/v1/system"
+    class: el-icon-notebook-1

@@ -1,0 +1,40 @@
+.vscode/
+.idea
+__debug_bin
+
+output/
+cert/certs/
+certs
+easyca
+easyca.exe
+# db/*.db
+zips/
+vendor/
+dist/
+# vue frontend ignore
+.DS_Store
+frontend/node_modules
+frontend/dist
+dist
+
+# local env files
+frontend/.env.local
+frontend/.env.*.local
+
+# Log files
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
+frontend/pnpm-debug.log*
+
+# Editor directories and files
+frontend/.idea
+frontend/.vscode
+frontend/*.suo
+frontend/*.ntvs*
+frontend/*.njsproj
+frontend/*.sln
+frontend/*.sw?
+# tingyun log file
+agent.log
+Dockerfile_test

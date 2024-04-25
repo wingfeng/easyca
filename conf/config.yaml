@@ -1,0 +1,27 @@
+adminrole: "manager"
+certpath: "/mnt/d/certs"
+log: "debug"
+rbacmodelpath: "conf/rbac_model.conf"
+vuepath: "frontend/dist"
+ip: "0.0.0.0"
+port: 9000
+defaultpwd: "easyca.local"
+defaultRoleName: "employee"
+useoidc: false
+ldap:
+    url: "ldap://localhost:389"
+    basedn: "dc=easyca,dc=local"
+    binddn: "cn=admin,dc=easyca,dc=local"
+    bindpassword: "pass@word1"
+oidc:
+    issuer: "https://idx.local"
+    clientid: "local_test"
+    secret: "local_secret"
+    callback: "/signin-oidc"
+    callbackproto: "http"
+db:
+    dbdriver: "sqlite3"
+    dbconnection: "db/policy.db"
+ca:
+    defaultdn: "/CN=%s/O=easyca.local/OU=easyca/L=广州/C=中国"
+    crlurl: "/root.crl"

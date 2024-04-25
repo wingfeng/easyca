@@ -1,0 +1,106 @@
+<html>
+
+<head>
+  <title>idx.local软件企业证书管理系统</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="" />
+  <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  {{ template "commoncss" }}
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+
+<body>
+  <div class="index-container" id="app">
+    <div>{{ template "header" }}</div>
+
+    <div class="main">
+      <el-row>
+        <el-col :span="3" class="main-menu">
+          {{ template "menu" }}
+        </el-col>
+
+        <el-col :span="21" class="main-content">
+          <el-card shadow="never" style="margin-bottom: 20px">
+            <p id="welcomeTitle"></p>
+          </el-card>
+          <el-card shadow="never">
+            <div slot="header" class="clearfix">
+              <span>根证书信息</span>
+            </div>
+            <div style="line-height: 30px">
+              <p>版本:V{{.cert.Version}}</p>
+              <p>序列号:{{.cert.SerialNumber}}</p>
+              <p>颁发者:{{.cert.Issuer}}</p>
+              <p>使用者:{{.cert.Subject}}</p>
+              <p>有效期从   {{.cert.NotBefore}} 到   {{.cert.NotAfter}}</p>
+              <p>IsCA                  {{.cert.IsCA}}</p>
+              <p>最大证书链长度            {{.cert.MaxPathLen}}</p>
+              <p>DNSNames       {{.cert.DNSNames}}</p>
+              <p>EmailAddresses {{.cert.EmailAddresses}}</p>
+              <p>IPAddresses    {{.cert.IPAddresses}}</p>
+              <p>PermittedDNSDomainsCritical {{.cert.PermittedDNSDomainsCritical}}</p>
+              <p>PermittedDNSDomains   {{.cert.PermittedDNSDomains}}</p>
+              <p>CRLDistributionPoints {{.cert.CRLDistributionPoints}}</p>
+              <p></p>
+            </div>
+          </el-card>
+        </el-col>
+      </el-row>
+    </div>
+    {{template "footer"}}
+  </div>
+</body>
+
+{{ template "commonjs"}}
+<script>
+  new Vue({
+    el: '#app',
+    data: function () {
+      return {
+        menuActive: '',
+      }
+    },
+    created() {
+      let url = window.location.href
+      this.menuActive = url.substring(url.lastIndexOf('/'), url.length)
+      this.handleWelcome()
+    },
+    methods: {
+      handleSelected(index, indexPath) {
+        window.location.href = index
+      },
+
+      handleWelcome() {
+        let date = new Date()
+        let hour = date.getHours()
+        let time = this.handleTime(date)
+        let node = document.getElementById("welcomeTitle")
+        if (hour < 12) node.innerText = `上午好：test！当前时间：${time}`
+        else if (hour < 17) node.innerText = `中午好：test！当前时间：${time}`
+        else if (hour < 24) node.innerText = `晚上好：test！当前时间：${time}`
+      },
+
+      handleTime(inputTime) {
+        let date = new Date(inputTime);
+        let y = date.getFullYear();
+        let m = date.getMonth() + 1;
+        m = m < 10 ? ('0' + m) : m;
+        let d = date.getDate();
+        d = d < 10 ? ('0' + d) : d;
+        let h = date.getHours();
+        h = h < 10 ? ('0' + h) : h;
+        let minute = date.getMinutes();
+        let second = date.getSeconds();
+        minute = minute < 10 ? ('0' + minute) : minute;
+        second = second < 10 ? ('0' + second) : second;
+        return y + '-' + m + '-' + d + ' ' + h + ':' + minute + ':' + second;
+      }
+    },
+  })
+</script>
+
+</html>

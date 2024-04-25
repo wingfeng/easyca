@@ -1,0 +1,33 @@
+html,
+body,
+#app {
+  margin: 0;
+  padding: 0;
+  background: #eee;
+  font-size: 16px;
+}
+
+.el-breadcrumb {
+  margin-bottom: 15px;
+}
+
+.el-table {
+  margin-top: 15px;
+}
+
+.el-pagination {
+  margin-top: 15px;
+  float: right;
+}
+
+.el-steps {
+  margin: 15px 0;
+}
+
+.el-step__title {
+  font-size: 13px;
+}
+
+.el-cascader {
+  width: 100%;
+}
